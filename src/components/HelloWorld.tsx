@@ -9,7 +9,6 @@ export function HelloWorld() {
   return (
     <div className="Container">
       <TonConnectButton />
-
       <Card>
         <FlexBoxCol>
           <h3>Hello World from contract</h3>
@@ -19,7 +18,7 @@ export function HelloWorld() {
           </FlexBoxRow>
           <FlexBoxRow>
             <b>Value</b>
-            <div>{value ?? "Loading..."}</div>
+            <div>{value}</div>
           </FlexBoxRow>
         </FlexBoxCol>
       </Card>
