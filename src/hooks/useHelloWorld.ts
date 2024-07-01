@@ -20,7 +20,7 @@ export function useHelloWorld() {
   const { data, isFetching } = useQuery(
     ["counter"],
     async () => {
-      if (fetchCount >= 1) return null;
+      if (fetchCount >= 2) return null;
       if (!helloWorldContract) return null;
       setFetchCount(prev => prev + 1);
       return (await helloWorldContract!.getGreeting()).toString();
@@ -29,7 +29,7 @@ export function useHelloWorld() {
   );
 
   return {
-    value: isFetching ? null : data,
+    value: data,
     address: helloWorldContract?.address.toString()
   };
 }
