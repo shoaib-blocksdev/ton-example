@@ -42,8 +42,6 @@ export const BalanceButton = styled.button`
   padding: 10px 20px;
   color: white;
   font-weight: 700;
-  cursor: pointer;
-  pointer-events: ${(props) => (props.disabled ? "none" : "inherit")};
   margin-left: auto;
 `;
 
