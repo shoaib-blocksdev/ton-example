@@ -1,5 +1,3 @@
-import {TonConnectButton} from "@tonconnect/ui-react";
-
 import {Card, Ellipsis, FlexBoxCol, FlexBoxRow,} from "./styled/styled";
 import {useBalance} from "../hooks/useBalance";
 
