@@ -1,12 +1,12 @@
 import "./App.css";
 import {TonConnectButton} from "@tonconnect/ui-react";
 import styled from "styled-components";
-import {Button, FlexBoxCol, FlexBoxRow} from "./components/styled/styled";
+import {BalanceButton, Button, Ellipsis, FlexBoxCol, FlexBoxRow} from "./components/styled/styled";
 import {useTonConnect} from "./hooks/useTonConnect";
 import {CHAIN} from "@tonconnect/protocol";
 import "@twa-dev/sdk";
 import {HelloWorld} from "./components/HelloWorld";
-import {TonBalance} from "./components/TonBalance";
+import {useBalance} from "./hooks/useBalance";
 
 const StyledApp = styled.div`
   background-color: #e8e8e8;
@@ -26,31 +26,34 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  const { network } = useTonConnect();
+    const {network} = useTonConnect();
+    const balance = useBalance()
 
-  return (
-    <StyledApp>
-      <AppContainer>
-        <FlexBoxCol>
-          <FlexBoxRow>
-            <TonConnectButton />
-            <Button>
-              {network
-                ? network === CHAIN.MAINNET
-                  ? "mainnet"
-                  : "testnet"
-                : "N/A"}
-            </Button>
-          </FlexBoxRow>
-          <TonBalance />
-          <HelloWorld />
-          {/*<Counter />*/}
-          {/*<TransferTon />*/}
-          {/*<Jetton />*/}
-        </FlexBoxCol>
-      </AppContainer>
-    </StyledApp>
-  );
+    return (
+        <StyledApp>
+            <AppContainer>
+                <FlexBoxCol>
+                    <FlexBoxRow>
+                        <TonConnectButton/>
+                        <Button>
+                            {network
+                                ? network === CHAIN.MAINNET
+                                    ? "mainnet"
+                                    : "testnet"
+                                : "N/A"}
+                        </Button>
+                        <BalanceButton>
+                            Balance: {balance} TON
+                        </BalanceButton>
+                    </FlexBoxRow>
+                    <HelloWorld/>
+                    {/*<Counter />*/}
+                    {/*<TransferTon />*/}
+                    {/*<Jetton />*/}
+                </FlexBoxCol>
+            </AppContainer>
+        </StyledApp>
+    );
 }
 
 export default App;

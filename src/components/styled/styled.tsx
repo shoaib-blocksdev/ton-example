@@ -35,6 +35,18 @@ export const Button = styled.button`
   pointer-events: ${(props) => (props.disabled ? "none" : "inherit")};
 `;
 
+export const BalanceButton = styled.button`
+  background-color: black;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  pointer-events: ${(props) => (props.disabled ? "none" : "inherit")};
+  margin-left: auto;
+`;
+
 export const Ellipsis = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
