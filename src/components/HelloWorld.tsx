@@ -5,7 +5,6 @@ import {Card, Ellipsis, FlexBoxCol, FlexBoxRow,} from "./styled/styled";
 
 export function HelloWorld() {
   const { value, address } = useHelloWorld();
-
   return (
     <div className="Container">
       <TonConnectButton />

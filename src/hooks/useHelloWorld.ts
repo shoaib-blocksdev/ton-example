@@ -1,9 +1,9 @@
-import {useTonClient} from "./useTonClient";
-import {useAsyncInitialize} from "./useAsyncInitialize";
+import { useState } from "react";
 import {Address, OpenedContract} from "ton-core";
 import {useQuery} from "@tanstack/react-query";
+import {useTonClient} from "./useTonClient";
+import {useAsyncInitialize} from "./useAsyncInitialize";
 import {FirstContract} from "../contracts/FirstContract";
-import { useState } from "react";
 
 export function useHelloWorld() {
   const [fetchCount, setFetchCount] = useState(0);
@@ -17,7 +17,7 @@ export function useHelloWorld() {
     return client.open(contract) as OpenedContract<FirstContract>;
   }, [client]);
 
-  const { data, isFetching } = useQuery(
+  const { data } = useQuery(
     ["counter"],
     async () => {
       if (fetchCount >= 2) return null;

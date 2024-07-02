@@ -1,14 +1,12 @@
 import "./App.css";
-import { TonConnectButton } from "@tonconnect/ui-react";
-import { Counter } from "./components/Counter";
-//import { Jetton } from "./components/Jetton";
-import { TransferTon } from "./components/TransferTon";
+import {TonConnectButton} from "@tonconnect/ui-react";
 import styled from "styled-components";
-import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
-import { useTonConnect } from "./hooks/useTonConnect";
-import { CHAIN } from "@tonconnect/protocol";
+import {Button, FlexBoxCol, FlexBoxRow} from "./components/styled/styled";
+import {useTonConnect} from "./hooks/useTonConnect";
+import {CHAIN} from "@tonconnect/protocol";
 import "@twa-dev/sdk";
 import {HelloWorld} from "./components/HelloWorld";
+import {TonBalance} from "./components/TonBalance";
 
 const StyledApp = styled.div`
   background-color: #e8e8e8;
@@ -44,6 +42,7 @@ function App() {
                 : "N/A"}
             </Button>
           </FlexBoxRow>
+          <TonBalance />
           <HelloWorld />
           {/*<Counter />*/}
           {/*<TransferTon />*/}
